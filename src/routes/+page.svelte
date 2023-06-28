@@ -54,7 +54,8 @@
 			],
 
 			editable: true,
-			droppable: true, // this allows things to be dropped onto the calendar
+			droppable: true,
+			// this is for removing events from the list
 			drop: function (info) {
 				events.findIndex((event) => event.title === info.draggedEl.innerText)
 				events.splice(
@@ -87,6 +88,7 @@
 			slotMinTime: '09:00:00',
 			slotMaxTime: '18:00:00',
 
+			// this is for putting the events back into the list
 			eventDragStop: function (info) {
 				let elCoords = { x: info.jsEvent.pageX, y: info.jsEvent.pageY }
 				let itemsBoundingRect = eventsContainer.getBoundingClientRect()
